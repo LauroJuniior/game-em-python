@@ -27,6 +27,7 @@ class Menu:
                     self.menu_text(20, MENU_OPTION[i], COLOR_YELLOW, ((WINDOW_WIDTH / 2), 180 + 30 * i))
                 else:
                     self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WINDOW_WIDTH / 2), 180 + 30 * i))
+            pygame.display.flip()
 
             # (Check for all )events checando todos os eventos
             for event in pygame.event.get():
@@ -39,7 +40,7 @@ class Menu:
                         if menu_option < len(MENU_OPTION) - 1:
                             menu_option +=1
                         else:
-                            menu_option = 0
+                            menu_option += 1
 
                     if event.key == pygame.K_UP:   #SETA PARA BAIXO
                         if menu_option > 0:
@@ -50,7 +51,7 @@ class Menu:
                     if event.key == pygame.K_RETURN:
                         return MENU_OPTION[menu_option]
 
-            pygame.display.flip()
+
 
     #ESCREVENDO NO MENU
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
