@@ -1,3 +1,4 @@
+from code.Const import WINDOW_WIDTH
 from code.Entity import Entity
 
 class Background(Entity):
@@ -5,4 +6,9 @@ class Background(Entity):
         super().__init__(name, position)
 
     def move(self, ):
+        self.rect.centerx -= 1
+        if self.rect.right <= 0:
+            self.rect.left = WINDOW_WIDTH
         pass
+
+
